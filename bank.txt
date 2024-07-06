@@ -1,0 +1,4 @@
+1. Create an account
+2. Deposit and withdraw money
+3. Check balance
+4. View Transaction history
