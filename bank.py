@@ -37,7 +37,7 @@ currentCustomer = None
 
 def login_menu():
     global customers, currentCustomer
-    print("### Login ###")
+    print("\n### Login ###")
     # login with username and password
     usernameInput = input("Input Username : ")
     passwordInput = input("Input password : ")
@@ -60,6 +60,7 @@ def logout_menu():
 
 def createAccount_menu():
     global customers
+    print("\n### Create Account ###")
     # create username and password
     newUsername = input("Create Username : ")
     newPassword = input("Create a Password : ")
@@ -80,6 +81,7 @@ def createAccount_menu():
 
 def deposit_menu():
     global currentCustomer
+    print("\n### Deposit ###")
     depositAmount = int(input("Insert deposit's amount: Rp."))
     confirm_deposit = input(f"Are you sure want to deposit Rp.{depositAmount}? [y/n] : ").lower()
     if confirm_deposit == 'y':
@@ -92,6 +94,7 @@ def deposit_menu():
     press_any_key()
 
 def checkBalance_menu():
+    print("\n### Check Balance ###")
     global currentCustomer
     checkBalance = f"Your ({currentCustomer.checkUsername()}) BALANCE : Rp.{currentCustomer.checkBalance()}"
     print(checkBalance)
@@ -99,6 +102,7 @@ def checkBalance_menu():
 
 def withdraw_menu():
     global currentCustomer
+    print("\n### Withdraw ###")
     withdraw_amount = int(input("Insert withdraw's amount: Rp."))
     if withdraw_amount > currentCustomer.checkBalance():
         print("NOT ENOUGH BALANCE TO WITHDRAW")
@@ -110,11 +114,11 @@ def withdraw_menu():
 
 def viewTransactionsHistory_menu():
     global currentCustomer
-    print("### Deposit History ###")
+    print("\n### Deposit History ###")
     for depositHistory in currentCustomer.checkDepositHistory():
         print(f"- {depositHistory}")
     
-    print("### Withdraw History ###")
+    print("\n### Withdraw History ###")
     for withdrawHistory in currentCustomer.checkWithdrawHistory():
         print(f"- {withdrawHistory}")
             
@@ -122,7 +126,7 @@ def viewTransactionsHistory_menu():
     press_any_key()
 
 def showAllCustomers_menu():
-    print("### Customers list ###")
+    print("\n### Customers list ###")
     for customer in customers:
         print(f"username : {customer.checkUsername()} | password : {customer.checkPassword()}")
     press_any_key()
@@ -136,7 +140,7 @@ def press_any_key():
 while True:
     # Menu Before Login
     if currentCustomer == None:
-        print("### Welcome to XBank Please Login or Register ###")
+        print("\n### Welcome to XBank Please Login or Register ###")
         print("1. Login")
         print("2. Create an Account")
         print("3. Show all customers (admin)")
@@ -153,7 +157,7 @@ while True:
             press_any_key()
     # Menu After Login
     else:
-        print(f"### Welcome to XBank {currentCustomer.checkUsername()}! ###")
+        print(f"\n### Welcome to XBank {currentCustomer.checkUsername()}! ###")
         print("1. Deposit")
         print("2. Withdraw")
         print("3. Check Balance")
